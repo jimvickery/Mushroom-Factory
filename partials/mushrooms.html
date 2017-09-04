@@ -1,0 +1,48 @@
+<article class="=product-list">
+    
+                
+        
+        <div class="row heading">
+            <div class="col-xs-12"><h1>Welcome to the Mushroom Factory</h1></div>
+        </div> 
+            <br>
+            
+            
+             <div class="col-xs-5 "> <label>Search</label> <input ng-model="mushroomQuery" placeholder="Search for Mushrooms" autofocus>
+             </div><br><br>
+             <div class="col-xs-2"> <input  type="radio" name="mushrooms" value="All-Mushrooms" checked>All Mushrooms </div>
+             <input  type="radio" name="mushrooms" value="Non-poisonous"> Non-poisonous 
+             <input  type="radio" name="mushrooms" value="Poisonous">  Poisonous
+             
+             <br><br>
+    
+        <section>
+            
+            <div class="row panel panel-defalut">
+                    <div  class="panel-body">
+                            <div class="col-xs-2"><h3>Name</h3></div>
+                            <div class="col-xs-1"><h3>Edible</h3></div>
+                            <div class="col-xs-9"><h3>Description</h3></div>
+                           
+                    </div>
+            </div>
+    
+            <!-- pulls all data from JSON file for search -->
+            <div class="row panel panel-default">
+                    <div  class="panel-body">
+                        <div ng-repeat="mushroom in mushroomsArray | filter: mushroomQuery">
+                            <span ng-class-odd="'odd'" ng-class-even="'even'">
+                                <div class="col-xs-2">{{mushroom.name}}</div>
+                                <div class="col-xs-1">{{mushroom.edible}}</div>
+                                <div class="col-xs-9">{{mushroom.description}}</div>
+                                <hr style="width:100%; height:2px; color:#000000;">
+                                
+                            </span>
+                        </div>        
+                     </div>
+            </div> 
+        </sectio>
+    
+    
+    
+    </article>
