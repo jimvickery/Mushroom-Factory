@@ -10,9 +10,9 @@
             
              <div class="col-xs-5 "> <label>Search</label> <input ng-model="mushroomQuery" placeholder="Search for Mushrooms" autofocus>
              </div><br><br>
-             <div class="col-xs-2"> <input  type="radio" name="mushrooms" value="All-Mushrooms" checked>All Mushrooms </div>
-             <input  type="radio" name="mushrooms" value="Non-poisonous"> Non-poisonous 
-             <input  type="radio" name="mushrooms" value="Poisonous">  Poisonous
+             <!-- <div class="col-xs-2"> <input  type="radio" name="shrooms"  ng-model="mushrooms" value="All-Mushrooms" checked>All Mushrooms </div> -->
+             <input  type="radio"  ng-model="mushrooms" value="true"> Non-poisonous 
+             <input  type="radio"  ng-model="mushrooms" value="false">  Poisonous 
              
              <br><br>
     
@@ -30,7 +30,7 @@
             <!-- pulls all data from JSON file for search -->
             <div class="row panel panel-default">
                     <div  class="panel-body">
-                        <div ng-repeat="mushroom in mushroomsArray | filter: mushroomQuery">
+                        <div ng-repeat="mushroom in mushroomsArray | filter: mushroomQuery | filter: mushrooms">
                             <span ng-class-odd="'odd'" ng-class-even="'even'">
                                 <div class="col-xs-2">{{mushroom.name}}</div>
                                 <div class="col-xs-1">{{mushroom.edible}}</div>
